@@ -1,14 +1,16 @@
-let button;
-button = document.querySelector("#btn");
+import { createApp, ref, computed } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
-let maxChars = document.querySelector("#str");
-maxChars.setAttribute("maxlength", "50");
+createApp({
+  setup() {
 
-function wordLength(){
-  let wordInput = maxChars.value;
-  let wordChars = wordInput.length;
-  let wordOut = document.querySelector("#output")
-  wordOut.append(wordChars);
-}
+    const inputUser = ref("");
+    const oddEven = computed(()=>{
+      return inputUser.value.length % 2 == 0;
+    })
 
-button.addEventListener("click", wordLength);
+    return {
+      inputUser,
+      oddEven
+    }
+  }
+}).mount('#app')

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,21 @@
     <title>Word Length Calcuator</title>
 </head>
 <body>
-    <h1>Type a word in the box</h1>
-    <input type="text" id="str">
-    <div id="output"></div>
-    <button id="btn"><h2>Click to calculate word length</h2></button>
-    <script src="app.js"></script>
+
+    <div id="app">
+
+        <h1>Escribe una palabra</h1>
+        <input v-model="inputUser" type="text" id="str">
+
+        <p v-show="inputUser">El número de letras es: {{ inputUser.length }}</p>
+
+        <div v-show="inputUser">
+            <p v-if="oddEven">La palabra es par</p>
+            <p v-else>La palabra es impar</p>
+        </div>
+        
+    </div>
+
+    <script type="module" src="app.js"></script>
 </body>
 </html>
